@@ -27,11 +27,13 @@ class API:
             parsed_result = parse(path, request_path)
             if parsed_result is not None:
                 return handler, parsed_result.named
+        return None, None
 
     def handle_request(self, request):
         response = Response()
         handler, kwargs = self.find_handler(request_path=request.path)
-        if handler is not None:
+
+        if handler is not None and kwargs is not None:
             handler(request, response, **kwargs)
         else:
             self.default_response(response)
