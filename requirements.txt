@@ -1,0 +1,4 @@
+gunicorn==21.2.0
+packaging==23.1
+parse==1.19.1
+WebOb==1.8.7
