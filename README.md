@@ -1,7 +1,7 @@
 # 🪁 PyKite 
 > PyKite represents a research and development endeavor aimed at crafting a Python-centric micro framework initiative. 
 
-![Pykite, the Python framework](./extras/kite.png)
+![Pykite, the Python framework](./extras/yellow-kite.png)
 
 ## Installation
 ```sh
