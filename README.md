@@ -1,7 +1,7 @@
-# 🪁 Kite 
-> Kite represents a research and development endeavor aimed at crafting a Python-centric micro framework initiative. 
+# 🪁 PyKite 
+> PyKite represents a research and development endeavor aimed at crafting a Python-centric micro framework initiative. 
 
-![kite, the Python framework](./extras/kite.png)
+![Pykite, the Python framework](./extras/kite.png)
 
 ## Installation
 ```sh
