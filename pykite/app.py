@@ -1,7 +1,7 @@
 import sys
-from wsgiref.simple_server import make_server
 from webob import Request, Response
 from parse import parse
+from werkzeug.serving import run_simple
 
 
 class PyKite:
@@ -23,9 +23,9 @@ class PyKite:
 
     def run(self, host='localhost', port=8000):
         try:
-            with make_server(host, port, self) as httpd:
-                print('Serving on http://{host}:{port}'.format(host=host, port=port))
-                httpd.serve_forever()
+            print(f'Serving on http://{host}:{port}')
+            run_simple(host, port, self, use_reloader=True)
+
         except KeyboardInterrupt:
             print("\033[91mServing process terminated.\033[0m")
             sys.exit(0)
