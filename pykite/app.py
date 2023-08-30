@@ -1,3 +1,5 @@
+import sys
+from wsgiref.simple_server import make_server
 from webob import Request, Response
 from parse import parse
 
@@ -18,6 +20,15 @@ class PyKite:
         request = Request(environ)
         response = self.handle_request(request)
         return response(environ, start_response)
+
+    def run(self, host='localhost', port=8000):
+        try:
+            with make_server(host, port, self) as httpd:
+                print('Serving on http://{host}:{port}'.format(host=host, port=port))
+                httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\033[91mServing process terminated.\033[0m")
+            sys.exit(0)
 
     def default_response(self, response):
         response.status_code = 404
