@@ -1,6 +1,6 @@
-from api import API
+from pykite import PyKite
 
-app = API()
+app = PyKite()
 
 
 @app.route("/")

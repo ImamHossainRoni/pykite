@@ -2,7 +2,7 @@ from webob import Request, Response
 from parse import parse
 
 
-class API:
+class PyKite:
     def __init__(self):
         self.routes = {}
 
