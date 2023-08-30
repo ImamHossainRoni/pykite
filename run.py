@@ -25,12 +25,16 @@ def get_gunicorn_location(venv_path):
 def main():
     venv_path = get_venv_path()
     gunicorn_location = get_gunicorn_location(venv_path)
+    try:
 
-    if gunicorn_location:
-        command = f"{gunicorn_location} app:app --reload"
-        subprocess.call(command, shell=True)
-    else:
-        print("\033[91mGunicorn executable not found in the virtual environment.\033[0m")
+        if gunicorn_location:
+            command = f"{gunicorn_location} app:app --reload"
+            subprocess.call(command, shell=True)
+        else:
+            print("\033[91mGunicorn executable not found in the virtual environment.\033[0m")
+    except KeyboardInterrupt:
+        print("Gunicorn process terminated.")
+        sys.exit(0)  # Exit gracefully without showing traceback
 
 
 if __name__ == "__main__":
