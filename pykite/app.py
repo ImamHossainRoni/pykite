@@ -3,8 +3,9 @@ from parse import parse
 
 
 class PyKite:
-    def __init__(self):
+    def __init__(self, debug=False):
         self.routes = {}
+        self.debug = debug
 
     def route(self, path):
         def wrapper(handler):
@@ -31,6 +32,11 @@ class PyKite:
 
     def handle_request(self, request):
         response = Response()
+
+        # Check if debug flag is True and print some debug information
+        if self.debug:
+            print(f"Request received: {request.method} {request.path}")
+
         handler, kwargs = self.find_handler(request_path=request.path)
 
         if handler is not None and kwargs is not None:

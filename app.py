@@ -1,6 +1,6 @@
 from pykite import PyKite
 
-app = PyKite()
+app = PyKite(debug=True)
 
 
 @app.route("/")
