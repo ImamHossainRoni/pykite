@@ -9,17 +9,17 @@ class PyKite:
         self.routes = {}
         self.debug = debug
 
+    def __call__(self, environ, start_response, *args, **kwargs):
+        request = Request(environ)
+        response = self.handle_request(request)
+        return response(environ, start_response)
+
     def route(self, path):
         def wrapper(handler):
             self.routes[path] = handler
             return handler
 
         return wrapper
-
-    def __call__(self, environ, start_response, *args, **kwargs):
-        request = Request(environ)
-        response = self.handle_request(request)
-        return response(environ, start_response)
 
     def run(self, host='localhost', port=8000):
         try:
