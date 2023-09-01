@@ -30,9 +30,10 @@ class PyKite:
             print("\033[91mServing process terminated.\033[0m")
             sys.exit(0)
 
-    def default_response(self, response):
-        response.status_code = 404
-        response.text = "Not found."
+    @staticmethod
+    def default_response():
+        response = Response("Not found.", status=404)
+        return response
 
     def find_handler(self, request_path):
         for path, handler in self.routes.items():
@@ -51,8 +52,8 @@ class PyKite:
         handler, kwargs = self.find_handler(request_path=request.path)
 
         if handler is not None and kwargs is not None:
-            handler(request, response, **kwargs)
+            response = handler(request, response, **kwargs)
         else:
-            self.default_response(response)
+            response = self.default_response()
 
         return response
