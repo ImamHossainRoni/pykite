@@ -28,7 +28,7 @@ def main():
     try:
 
         if gunicorn_location:
-            command = f"{gunicorn_location} app:app --reload"
+            command = f"{gunicorn_location} -w 4 -b localhost:8000  app:app --reload"
             subprocess.call(command, shell=True)
         else:
             print("\033[91mGunicorn executable not found in the virtual environment.\033[0m")
