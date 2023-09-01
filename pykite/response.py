@@ -8,7 +8,7 @@ Created: September 01, 2023
 
 Description: ''
 """
-
+import json
 from webob import Response as WebObResponse
 
 __author__ = 'Imam Hossain Roni'
@@ -39,6 +39,10 @@ class Response:
 
     def __call__(self, environ, start_response):
         if self.data is not None and self.status is not None:
+
+            if isinstance(self.data, dict):
+                self.data = json.dumps(self.data)
+                self.content_type = "application/json"
 
             response = WebObResponse(
                 body=self.data.encode('utf-8') if isinstance(self.data, str) else self.data,
