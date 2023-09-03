@@ -1,5 +1,4 @@
 # PyKite: A research and development initiative for crafting a Python-centric micro framework.
----
 
 [//]: # (![Pykite, the Python framework]&#40;./extras/yellow-kite.png&#41;)
 <img src="./extras/yellow-kite.png" height="500">
