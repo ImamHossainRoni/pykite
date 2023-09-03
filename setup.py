@@ -6,8 +6,8 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="PyKite",
-    version="0.1.0",
+    name="pykite",
+    version="0.2.0",
     description="A Python-centric micro-framework for building web applications",
     long_description=long_description,
     long_description_content_type="text/markdown",

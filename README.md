@@ -1,8 +1,7 @@
 # PyKite: A research and development initiative for crafting a Python-centric micro framework.
 
 [//]: # (![Pykite, the Python framework]&#40;./extras/yellow-kite.png&#41;)
-<img src="./extras/yellow-kite.png" height="500">
-
+![PyKite Icon](https://raw.githubusercontent.com/ImamHossainRoni/pykite/main/extras/yellow-kite.png)
 
 ## Features
 
@@ -25,15 +24,31 @@ pip install pykite
 2. Run your application using the `run` method:
 ```python
 from pykite import PyKite
+from pykite.response import Response
 
+# Create a PyKite application
 app = PyKite(debug=True)
 
+
+# Define a route for the '/' path
 @app.route('/')
 def index(request, response):
-    response.text = 'Hello, PyKite!'
+    """Respond with a JSON object containing the message "Hello, World!" to all requests to the '/' path."""
+    data = {"message": "Hello, World!"}
+    response = Response(data=data, status=200)
     return response
 
-if __name__ == '__main__':
+
+@app.route('/hello/{name}')
+def hello(request, response, name):
+    """ Took a name from the URL and responds with a friendly greeting in JSON."""
+    data = {"message": f"Hello, {name}"}
+    response = Response(data=data, status=200)
+    return response
+
+
+# Run the application
+if __name__ == "__main__":
     app.run()
 
 ```
@@ -41,5 +56,6 @@ if __name__ == '__main__':
 
 
 
+## License
 
-
+This project is licensed under the [MIT License](LICENSE).
