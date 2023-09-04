@@ -1,5 +1,5 @@
 from pykite import PyKite
-from pykite.response import Response
+from pykite.http.response import Response
 
 # Create a PyKite application
 app = PyKite(debug=True)

@@ -10,7 +10,7 @@ Description: 'A research and development initiative for crafting a Python-centri
 """
 
 import sys
-from webob import Request, Response
+from pykite.http import Request, Response
 from parse import parse
 from werkzeug.serving import run_simple
 

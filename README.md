@@ -22,9 +22,10 @@ pip install pykite
 ## Run the application
 1. Create a Python script for your web application using PyKite. Define routes and handlers as needed.
 2. Run your application using the `run` method:
+
 ```python
 from pykite import PyKite
-from pykite.response import Response
+from pykite.http.response import Response
 
 # Create a PyKite application
 app = PyKite(debug=True)
