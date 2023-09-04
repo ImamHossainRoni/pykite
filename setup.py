@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="pykite",
-    version="0.2.0",
+    version="0.3.0",
     description="A Python-centric micro-framework for building web applications",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,7 +16,6 @@ setup(
     url="https://github.com/imamhossainroni/pykite",
     packages=find_packages(),
     install_requires=[
-        "webob",
         "parse",
         "werkzeug",
     ],
@@ -35,6 +34,15 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
+    keywords=[
+        "pykite",
+        "web framework",
+        "micro framework",
+        "web applications",
+        "Python",
+        "HTTP",
+        "WSGI",
     ],
     project_urls={
         "Bug Tracker": "https://github.com/imamhossainroni/pykite/issues",
