@@ -1,9 +1,5 @@
 version: 2
 
-
-# Specify the index file (your main documentation entry point)
-index: index.md
-
 builder:
   # Use the latest Read the Docs build image
   image: readthedocs/build:latest
