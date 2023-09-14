@@ -1,5 +1,8 @@
 version: 2
 
+docs_dir: docs
+index: index.md
+
 builder:
   image: readthedocs/build:latest
 
