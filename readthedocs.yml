@@ -1,13 +1,1 @@
-version: 2
-
-builder:
-  # Use the latest Read the Docs build image
-  image: readthedocs/build:latest
-
-# Build documentation in all available formats
-formats: all
-
-python:
-  version: 3.8
-  install:
-    - requirements: requirements.txt
+site_name: PyKite Documentation
