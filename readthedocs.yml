@@ -1,7 +1,5 @@
 version: 2
 
-# Specify the documentation type as "mkdocs"
-documentation_type: mkdocs
 
 # Specify the index file (your main documentation entry point)
 index: index.md
