@@ -55,7 +55,8 @@ if __name__ == "__main__":
 ```
 3. Access your application in a web browser at http://localhost:8000.
 
-
+## Middleware
+Middleware in web development refers to software components that sit between a web server and an application. They intercept requests and responses, allowing for additional processing or modification before they reach the application or client. Middleware can be used for tasks like authentication, authorization, logging, caching, and more. Let's see [here](middleware.md) how we can use middleware in `PyKite` framework. 
 
 ## License
 
