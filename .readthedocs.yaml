@@ -4,6 +4,9 @@
 
 # Required
 version: 2
+build:
+  os: [linux, windows]
+  command: python setup.py build
 
 mkdocs:
   configuration: mkdocs.yml
