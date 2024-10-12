@@ -1,1 +1,2 @@
-site_name: PyKite Documentation
+mkdocs serve
+#site_name: PyKite Documentation
