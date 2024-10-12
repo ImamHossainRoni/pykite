@@ -71,7 +71,7 @@ class PyKite:
         if handler is not None and kwargs is not None:
             handler(request, response, **kwargs)
         else:
-            self.default_response(response)
+            self.default_response()
 
         for middleware in reversed(self.middleware):
             response = middleware.process_response(request, response)
