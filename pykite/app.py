@@ -40,7 +40,7 @@ class PyKite:
         handle_request: Handles incoming HTTP requests.
     """
 
-    def __init__(self, debug=False):
+    def __init__(self, debug=False, middlewares=None):
         """
         Initialize the PyKite instance.
 
@@ -49,6 +49,7 @@ class PyKite:
         """
         self.routes = {}
         self.debug = debug
+        self.middleware = [middleware_cls(self) for middleware_cls in middlewares] if middlewares else []
 
     def __call__(self, environ, start_response, *args, **kwargs):
         """
@@ -63,6 +64,17 @@ class PyKite:
         """
         request = Request(environ)
         response = self.handle_request(request)
+        for middleware in self.middleware:
+            request, response = middleware.process_request(request, response)
+
+        handler, kwargs = self.find_handler(request_path=request.path)
+        if handler is not None and kwargs is not None:
+            handler(request, response, **kwargs)
+        else:
+            self.default_response(response)
+
+        for middleware in reversed(self.middleware):
+            response = middleware.process_response(request, response)
         return response(environ, start_response)
 
     def route(self, path):
